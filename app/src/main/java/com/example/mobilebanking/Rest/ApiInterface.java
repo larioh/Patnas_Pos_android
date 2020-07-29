@@ -1,6 +1,6 @@
 package com.example.mobilebanking.Rest;
 
-import com.example.mobilebanking.Model.Example;
+import com.example.mobilebanking.Model.Member;
 
 import java.util.List;
 
@@ -8,15 +8,13 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface ApiInterface {
-    @GET("example")
-    Call<List<Example>> getExamples();
+    @POST("databaseScripts/dbScript.php")
+    Call<List<Member>> getMember(@Body Member member);
 
-    @GET("movie/top_rated")
-    Call<Example> getTopExamples(@Query("api_key") String apiKey);
+    @GET("dbScript.php")
+    Call<List<Member>> getMembers();
 
 //    @POST("users/new")
 //    Call<Example> createUser(@Body Example example);

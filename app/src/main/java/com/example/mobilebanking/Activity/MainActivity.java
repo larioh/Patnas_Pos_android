@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
-import com.example.mobilebanking.Model.Example;
+import com.example.mobilebanking.Model.Member;
 import com.example.mobilebanking.R;
 import com.example.mobilebanking.Rest.ApiClient;
 import com.example.mobilebanking.Rest.ApiInterface;
@@ -34,23 +33,25 @@ public class MainActivity extends AppCompatActivity {
 
         /*Create handle for the RetrofitInstance interface*/
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<Example>> call = apiService.getExamples();
-        call.enqueue(new Callback<List<Example>>() {
+        Member member = new Member("", "");
+        Call<List<Member>> call = apiService.getMember(member);
+        call.enqueue(new Callback<List<Member>>() {
             @Override
-            public void onResponse(Call<List<Example>> call, Response<List<Example>> response) {
+            public void onResponse(Call<List<Member>> call, Response<List<Member>> response) {
                 progressDoalog.dismiss();
                 generateDataList(response.body());
             }
 
             @Override
-            public void onFailure(Call<List<Example>> call, Throwable t) {
+            public void onFailure(Call<List<Member>> call, Throwable t) {
                 progressDoalog.dismiss();
                 Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void generateDataList(List<Example> body) {
+    private void generateDataList(List<Member> body) {
+        String val = "";
 //        recyclerView = findViewById(R.id.customRecyclerView);
 //        adapter = new CustomAdapter(this,photoList);
 //        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
