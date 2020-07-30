@@ -1,5 +1,6 @@
 package com.example.mobilebanking.Rest;
 
+import com.example.mobilebanking.Model.LoginResponse;
 import com.example.mobilebanking.Model.Member;
 
 import java.util.List;
@@ -11,10 +12,10 @@ import retrofit2.http.POST;
 
 public interface ApiInterface {
     @POST("databaseScripts/dbScript.php")
-    Call<List<Member>> getMember(@Body Member member);
+    Call<LoginResponse> getMember(@Body Member member);
 
-    @GET("dbScript.php")
-    Call<List<Member>> getMembers();
+    @GET("databaseScripts/dbScript.php")
+    Call<LoginResponse> getMembers();
 
 //    @POST("users/new")
 //    Call<Example> createUser(@Body Example example);
