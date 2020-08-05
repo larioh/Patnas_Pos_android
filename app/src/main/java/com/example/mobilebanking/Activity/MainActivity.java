@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mobilebanking.Model.LoginResponse;
-import com.example.mobilebanking.Model.Member;
+import com.example.mobilebanking.Model.Response;
+import com.example.mobilebanking.Model.MemberModel;
 import com.example.mobilebanking.R;
 import com.example.mobilebanking.Rest.ApiClient;
 import com.example.mobilebanking.Rest.ApiInterface;
@@ -21,10 +21,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDoalog;
+    ApiInterface apiService;
     @BindView(R.id.username) EditText username;
     @BindView(R.id.password) EditText password;
     @BindView(R.id.btnLogin) Button btnLogin;
@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        apiService = ApiClient.getClient().create(ApiInterface.class);
+        seedUser();
 
         progressDoalog = new ProgressDialog(MainActivity.this);
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -49,34 +51,59 @@ public class MainActivity extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent registerIntent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(registerIntent);
+            }
+        });
+    }
 
+    private void seedUser() {
+        String username = "CoopAdmin";
+        String password = "Coop@2020";
+        MemberModel memberModel = new MemberModel(username, password, "userRegister");
+        Call<Response> call = apiService.createUser(memberModel);
+        call.enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                Response responseData = response.body();
+                String message = responseData.getSuccess() == null ? "Sorry, An error occurred" : responseData.getSuccess();
+                if (message.equals(Constants.SUCCESS)){
+
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Sorry, An error occurred", Toast.LENGTH_LONG).show();
             }
         });
     }
 
     private void Login() {
-        /*Create handle for the RetrofitInstance interface*/
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Member member = new Member(username.getText().toString(), password.getText().toString());
-        Call<LoginResponse> call = apiService.getMember(member);
-        call.enqueue(new Callback<LoginResponse>() {
+        MemberModel memberModel = new MemberModel(username.getText().toString(), password.getText().toString(), "login");
+        Call<Response> call = apiService.getMember(memberModel);
+        call.enqueue(new Callback<Response>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 progressDoalog.dismiss();
-                LoginResponse loginResponse = response.body();
-                if (loginResponse.getSuccess().equals(Constants.SUCCESS)){
+                Response responseData = response.body();
+                String message = responseData.getSuccess() == null ? "Sorry, Invalid username or password" : responseData.getSuccess();
+                if (message.equals(Constants.SUCCESS)){
                     Intent homeIntent = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(homeIntent);
                 }
                 else {
-                    Toast.makeText(MainActivity.this, loginResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(Call<Response> call, Throwable t) {
                 progressDoalog.dismiss();
-                Toast.makeText(MainActivity.this, "Sorry, An error occurred", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Sorry, An error occurred", Toast.LENGTH_LONG).show();
             }
         });
     }

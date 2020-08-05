@@ -2,15 +2,18 @@ package com.example.mobilebanking.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Member {
+public class MemberModel {
     @SerializedName("username")
     private String usercode;
     @SerializedName("password")
     private  String password;
+    @SerializedName("operation")
+    private  String operation;
 
-    public Member(String usercode, String password) {
+    public MemberModel(String usercode, String password, String operation) {
         this.usercode = usercode;
         this.password = password;
+        this.operation = operation;
     }
 
     public String getUsercode() {
@@ -27,5 +30,13 @@ public class Member {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
     }
 }

@@ -1,6 +1,6 @@
 package com.example.mobilebanking.Model;
 
-public class LoginResponse {
+public class Response {
     private String success;
     private String message;
 
