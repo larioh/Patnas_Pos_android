@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobilebanking">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,6 +17,8 @@
         <activity android:name=".Activity.DepositActivity" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.HomeActivity" />
+        <activity android:name=".myactivities.MainActivity" />
+        <activity android:name=".myactivities.MyListActivity" />
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

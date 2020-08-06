@@ -6,4 +6,145 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+ <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="hello">Hello EasyMa</string>
+
+
+    <string name="setting">Setting</string>
+    <string name="searchdevice">Search Device</string>
+    <string name="action_search">Search</string>
+    <string name="monitor">Monitor</string>
+    <string name="about">About</string>
+    <string name="exit">Exit</string>
+    <string name="uri">http://www.amtechtechnologies.com</string>
+    <string name="message">Are you sure You Want to Exit?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="text_print_demo">Print Test</string>
+    <string name="text_print_receipt">Print Collection Receipt</string>
+    <string name="text_connect">Connect</string>
+    <string name="text_disconnect">Diconnect</string>
+    <string name="text_enable_bluetooth">Enable Bluetooth</string>
+    <string name="text_disable_bluetooth">Disable Bluetooth</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Android Push Notifications</string>
+    <string name="error_config">Please set the %1$s constant and recompile the app.</string>
+    <string name="already_registered">Device is already registered on server.</string>
+    <string name="gcm_registered">GCM: device successfully registered!</string>
+    <string name="gcm_unregistered">GCM: device successfully unregistered!</string>
+    <string name="gcm_message">GCM: you got message!</string>
+    <string name="gcm_error">GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">GCM: server deleted %1$d pending messages!</string>
+    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on Demo Server.</string>
+    <string name="server_registered">Demo Server: successfully added device!</string>
+    <string name="server_unregistered">Demo Server: successfully removed device!</string>
+    <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
+    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
+    <string name="options_register">Register</string>
+    <string name="options_unregister">Unregister</string>
+    <string name="options_clear">Clear</string>
+    <string name="options_exit">Exit</string>
+    <string name="text_scan_devices">Scan Devices</string>
+    <string name="text_stop_scan">Scan Devices</string>
+
+    <string name="text_list_paired_devices">Paired Devices</string>
+    <string name="text_list_devices">List of Devices</string>
+
+    <string name="text_pair">Pair</string>
+
+    <string-array name="language">
+        <item>English</item>
+        <item>Chinese</item>
+    </string-array>
+    <string name="open">Open Bluetooth</string>
+    <string name="close">Close Bluetooch</string>
+    <string name="allowdiscoverable">Allow Discoverable</string>
+    <string name="bluetoothmessage">Your bluetooch device is disable, please make it
+		enable first.</string>
+    <string name="strreturn">Set Language</string>
+    <string name="scaning">Scanning...</string>
+    <string name="nodevice">There isn\'t bluetooch devices!</string>
+    <string name="send">Send</string>
+    <string name="clear">Clear</string>
+    <string name="hexview">View as Hex</string>
+    <string name="hexsend">Send as Hex</string>
+
+    <string name="username">Username :</string>
+    <string name="password">Password :</string>
+    <string name="user_details">User Details</string>
+    <string name="idnos">Username :</string>
+    <string name="phoneno">Password :</string>
+    <string name="pinnum">User Details</string>
+    <string name="firstname">First Name:</string>
+    <string name="lastname">Last Name:</string>
+    <string name="title_activity_create_user">CreateUserActivity</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="selectonedevice">select device to connect</string>
+    <string name="version">version:1.0.1</string>
+    <string name="about1">easymApp is an android application of a very high technology of milk collection from the field using Bluetooth scale and printer, thus reducing the energy of a farmer of taking the milk to the dairy firm, that might be too or where transportation means is a problem.
+
+How it works.
+A default admin must login first, this authentication is to ensure highest level of security for precise collection and proper procedure for the payment of the milk delivery.
+After the default admin logs in, and whose logins are only know by the developer or the super admin or the supervisor of the firm. The supervisor or the super admin shiuld be given the logins to be able to add more users of the application who are now authenticated to do the milk collection from the farmers places.
+Collection
+After successful login as an authenticated user, they will use the collection button that takes them to daily collection or current collection. The daily collection is used to produce the report all the collection done in a particular day, while the current collection is for the field collection that is to collect the milk when the farmer delivers the milk.
+This current collection button takes you to searching of the scale device, that is to be discovered by the phone via the Bluetooth.</string>
+    <string name="about_us">About us</string>
+    <string name="about2">We believe that everyone should have the tool,
+		hardware platform and resource to play with cool electronic gadgetry
+		.Our goal is to fuels ubiquitous innovation with fast prototyping
+		modules, convenient development platform at low price, even
+		customizable solutions.</string>
+    <string name="ioexception">Connect failed!</string>
+    <string name="wait">Wait to connect the device...</string>
+    <string name="number">Please input the valid hex character.
+		ex:\'0-9\',\'A-F\',\'a-f\'.</string>
+    <string name="newline">Send as New Line</string>
+    <string name="create_user_account">Create User Account</string>
+    <string name="container_prompt">Choose a container</string>
+    <string name="container_comp">Choose a company</string>
+
+    <string name="time_prompt">Choose a Time</string>
+    <string-array name="time_arrays">
+        <item>AM</item>
+        <item>PM</item>
+        <item>PM2</item>
+    </string-array>
+
+    <color name="White">#FFFFFFFF</color>
+    <color name="Silver">#FFC0C0C0</color>
+    <color name="Gray">#FF808080</color>
+    <color name="Black">#FF000000</color>
+    <color name="Red">#FFFF0000</color>
+    <color name="Maroon">#FF800000</color>
+    <color name="Yellow">#FFFFFF00</color>
+    <color name="Olive">#FF808000</color>
+    <color name="Lime">#FF00FF00</color>
+    <color name="Green">#FF008000</color>
+    <color name="Aqua">#FF00FFFF</color>
+    <color name="Teal">#FF008080</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="Navy">#FF000080</color>
+    <color name="Fuchsia">#FFFF00FF</color>
+    <color name="Purple">#FF800080</color>
+    <string-array name="shift_array">
+        <item>AM</item>
+        <item>PM</item>
+        <item>PM1</item>
+    </string-array>
+    <string-array name="branch_array">
+        <item>0</item>
+        <item>1.5</item>
+
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bucket">1.5 Kg</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
